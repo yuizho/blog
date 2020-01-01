@@ -6,5 +6,5 @@ https://yuizho.github.io/blog/
 ## Thanks to
 - [Hugo](https://gohugo.io/)
 - [Minos (Hugo Theme)](https://themes.gohugo.io/hugo-theme-minos/)
-- [GitHub Pages action] (https://github.com/marketplace/actions/github-pages-action)
+- [GitHub Pages action](https://github.com/marketplace/actions/github-pages-action)
 - [Hugo setup](https://github.com/marketplace/actions/hugo-setup)
