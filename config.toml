@@ -6,3 +6,6 @@ hasCJKLanguage = true
 
 [Author]
   name = "yuizho"
+
+[params]
+    googleAnalytics = "UA-155195987-1"
