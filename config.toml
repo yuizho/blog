@@ -1,0 +1,8 @@
+baseURL = "https://yuizho.github.io/blog/"
+languageCode = "ja"
+title = "J'aime les ramens"
+theme = "minos"
+hasCJKLanguage = true
+
+[Author]
+  name = "yuizho"
