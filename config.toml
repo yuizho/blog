@@ -3,9 +3,7 @@ languageCode = "ja"
 title = "J'aime les ramens"
 theme = "minos"
 hasCJKLanguage = true
+googleAnalytics = "UA-155195987-1"
 
 [Author]
   name = "yuizho"
-
-[params]
-    googleAnalytics = "UA-155195987-1"
