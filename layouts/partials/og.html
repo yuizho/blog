@@ -5,7 +5,7 @@
     <meta property="og:locale" content="{{ .Lang }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
     {{ if .Params.ogimage -}}
-    <meta property="og:image" content="{{ .Params.ogimage }}" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.ogimage }}" />
     {{ else }}
     <meta property="og:image" content="{{ .Site.BaseURL }}img/yuizho.webp" />
     {{- end }}
