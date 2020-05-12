@@ -21,9 +21,11 @@
     {{- end }}
 
     {{ $site := .Site }}
+    <script src="{{ $site.BaseURL }}quicklink.umd.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
+                quicklink.listen();
                 navigator.serviceWorker
                     .register('{{ $site.BaseURL }}sw.js')
                     .then(reg => console.log('Service Worker: Registered'))
