@@ -1,7 +1,10 @@
 const CACHE_NAME = 'v1-yuizho-blog';
 const ORIGIN = location.origin;
 
-const isCacheable = (request) => request.url.startsWith(ORIGIN);
+const isCacheable = (request) => {
+    const url = request.url;
+    return url.startsWith(ORIGIN) && /(\.webp|\.jpeg|\.jpg|\.gif|\.png)$/.test(url);
+}
 
 // Call Install Event
 self.addEventListener('install', event => {
