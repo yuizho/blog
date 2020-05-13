@@ -1,4 +1,7 @@
-const cacheName = 'v1-yuizho-blog';
+const CACHE_NAME = 'v1-yuizho-blog';
+const ORIGIN = location.origin;
+
+const isCacheable = (request) => request.url.startsWith(ORIGIN);
 
 // Call Install Event
 self.addEventListener('install', event => {
@@ -16,7 +19,7 @@ self.addEventListener('activate', event => {
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cache => {
-                    if (cache !== cacheName) {
+                    if (cache !== CACHE_NAME) {
                         console.log("Service Worker: Clearing Old Cache");
                         return caches.delete(cache);
                     }
@@ -29,7 +32,7 @@ self.addEventListener('activate', event => {
 // Call Fetch Event
 self.addEventListener('fetch', event => {
     // if  the request is image, return immediately.
-    if (!/(\.webp|\.jpeg|\.jpg|\.gif|\.png)$/.test(event.request.url)) {
+    if (!isCacheable(event.request)) {
         return;
     }
 
@@ -43,7 +46,7 @@ self.addEventListener('fetch', event => {
 
         // if the request inexists in cache, fetch the asset and  store put into cache.
         const fetchedResponse = await fetch(event.request);
-        const opennedCache = await caches.open(cacheName);
+        const opennedCache = await caches.open(CACHE_NAME);
         opennedCache.put(event.request, fetchedResponse.clone());
         return fetchedResponse;
     }());
