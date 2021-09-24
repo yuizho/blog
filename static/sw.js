@@ -34,20 +34,20 @@ self.addEventListener('activate', event => {
 
 // Call Fetch Event
 self.addEventListener('fetch', event => {
-    // if  the request is image, return immediately.
+    // if  the request is not image, do nothing.
     if (!isCacheable(event.request)) {
         return;
     }
 
     event.respondWith(async function () {
-        // if the request exists in cache, return it.
+        // if the request exists in the cache, return it.
         const cachedResponse = await caches.match(event.request);
         if (cachedResponse) {
             console.log(`get from cache: ${event.request.url}`);
             return cachedResponse
         }
 
-        // if the request inexists in cache, fetch the asset and  store put into cache.
+        // if the request inexists in the cache, fetch the asset and put into the cache.
         const fetchedResponse = await fetch(event.request);
         const opennedCache = await caches.open(CACHE_NAME);
         opennedCache.put(event.request, fetchedResponse.clone());
